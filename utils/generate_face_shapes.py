@@ -14,7 +14,8 @@ def generate_facial_data_from_bytes(audio_bytes, model, device, config):
     audio_features, y = extract_audio_features(audio_bytes, from_bytes=True)
     
     if audio_features is None or y is None:
-        return [], np.array([])
+        # Return an empty array to maintain a consistent return type
+        return np.array([])
   
     final_decoded_outputs = process_audio_features(audio_features, model, device, config)
 
